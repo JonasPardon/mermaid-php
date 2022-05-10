@@ -12,7 +12,7 @@ class Node
         private string $identifier,
         private string $title,
         private NodeShape $shape,
-        private string $class,
+        private ?Style $style = null,
     ) {
     }
 
@@ -31,8 +31,13 @@ class Node
         return $this->shape;
     }
 
-    public function getClass(): string
+    public function hasStyle(): bool
     {
-        return $this->class;
+        return !is_null($this->style);
+    }
+
+    public function getStyle(): ?Style
+    {
+        return $this->style;
     }
 }
