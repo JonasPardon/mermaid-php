@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace JonasPardon\Mermaid\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class MermaidCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'mermaid-php';
 
     public $description = 'My command';
 

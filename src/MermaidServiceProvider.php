@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace JonasPardon\Mermaid;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VendorName\Skeleton\Commands\SkeletonCommand;
+use JonasPardon\Mermaid\Commands\MermaidCommand;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+class MermaidServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -16,10 +16,10 @@ class SkeletonServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('skeleton')
+            ->name('mermaid-php')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_skeleton_table')
-            ->hasCommand(SkeletonCommand::class);
+            ->hasMigration('create_mermaid-php_table')
+            ->hasCommand(MermaidCommand::class);
     }
 }
