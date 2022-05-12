@@ -67,6 +67,10 @@ A-->B;
 composer test
 ```
 
+## Used by
+
+- [Laravel Event Visualizer](https://github.com/JonasPardon/laravel-event-visualizer) -  a Laravel package to visualize your application's events and handlers
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
