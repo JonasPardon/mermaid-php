@@ -25,7 +25,7 @@ class Graph
     {
         $output = "flowchart {$this->direction->toString()};" . PHP_EOL;
 
-        $this->nodes->each(function (Node $node) use (&$output, &$styles) {
+        $this->nodes->each(function (Node $node) use (&$output) {
             $output .= $node->toString() . PHP_EOL;
 
             if ($node->hasStyle()) {
