@@ -17,10 +17,7 @@ class Graph
         ?GraphDirection $direction = null,
     )
     {
-        if (!$direction) {
-            $this->direction = new GraphDirection(GraphDirection::LEFT_TO_RIGHT);
-        }
-
+        $this->direction = $direction ?? new GraphDirection(GraphDirection::LEFT_TO_RIGHT);
         $this->nodes = new Collection();
         $this->links = new Collection();
     }
@@ -50,10 +47,7 @@ class Graph
         });
 
         $this->links->each(function (Link $link) use (&$output) {
-            $output .= $link->getFrom()->getIdentifier()
-                . $link->getArrow()->toString()
-                . $link->getTo()->getIdentifier()
-                . ';' . PHP_EOL;
+            $output .= $link->toString() . PHP_EOL;
         });
 
         return $output;
