@@ -15,8 +15,7 @@ class Graph
 
     public function __construct(
         ?GraphDirection $direction = null,
-    )
-    {
+    ) {
         $this->direction = $direction ?? new GraphDirection(GraphDirection::LEFT_TO_RIGHT);
         $this->nodes = new Collection();
         $this->links = new Collection();
@@ -34,13 +33,13 @@ class Graph
                 $format = 'style %s fill:%s,stroke:%s,stroke-width:%s,color:%s;';
 
                 $output .= sprintf(
-                        $format,
-                        $node->getIdentifier(),
-                        $style->getBackgroundColor(),
-                        $style->getBorderColor(),
-                        $style->getBorderWidth(),
-                        $style->getFontColor(),
-                    ) . PHP_EOL;
+                    $format,
+                    $node->getIdentifier(),
+                    $style->getBackgroundColor(),
+                    $style->getBorderColor(),
+                    $style->getBorderWidth(),
+                    $style->getFontColor(),
+                ) . PHP_EOL;
             }
         });
 
@@ -55,7 +54,7 @@ class Graph
     {
         /** @var Node|null $existingNodeWithSameIdentifier */
         $existingNodeWithSameIdentifier = $this->nodes
-            ->filter(fn(Node $existingNode) => $existingNode->getIdentifier() === $node->getIdentifier())
+            ->filter(fn (Node $existingNode) => $existingNode->getIdentifier() === $node->getIdentifier())
             ->first();
 
         if (!$existingNodeWithSameIdentifier) {
