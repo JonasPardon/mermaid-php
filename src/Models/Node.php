@@ -40,4 +40,14 @@ class Node
     {
         return $this->style;
     }
+
+    public function toString(): string
+    {
+        return $this->getIdentifier()
+            . sprintf(
+                $this->getShape()->toString(),
+                $this->getTitle(),
+            )
+            . ';';
+    }
 }
