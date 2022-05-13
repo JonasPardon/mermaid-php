@@ -50,7 +50,14 @@ $output = $graph->addNode($from)
     ->render();
 ```
 
-<img src="./example.png" />
+```mermaid
+flowchart LR;
+A("This package");
+style A fill:#16a085,stroke:#333333,stroke-width:1px,color:#ffffff;
+B{{"Your application"}};
+style B fill:#55efc4,stroke:#333333,stroke-width:1px,color:#000;
+A-->B;
+```
 
 ```
 flowchart LR;
