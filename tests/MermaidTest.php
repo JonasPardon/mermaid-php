@@ -9,13 +9,13 @@ use JonasPardon\Mermaid\Models\Link;
 use JonasPardon\Mermaid\Models\Node;
 use JonasPardon\Mermaid\VO\GraphDirection;
 use JonasPardon\Mermaid\VO\NodeShape;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 
 final class MermaidTest extends TestCase
 {
-    /**
-     * @dataProvider providesGraphDirections
-     * @test
-     */
+    #[Test]
+    #[DataProvider("providesGraphDirections")]
     public function it_can_set_the_direction(string $direction): void
     {
         $graph = new Graph(new GraphDirection($direction));
@@ -26,7 +26,7 @@ final class MermaidTest extends TestCase
         );
     }
 
-    /** @test */
+    #[Test]
     public function it_can_add_a_node_to_the_graph(): void
     {
         $graph = new Graph();
@@ -40,7 +40,7 @@ final class MermaidTest extends TestCase
         $this->assertStringContainsString($node->toString(), $graph->render());
     }
 
-    /** @test */
+    #[Test]
     public function it_can_add_a_link_between_nodes(): void
     {
         $graph = new Graph();
@@ -60,7 +60,7 @@ final class MermaidTest extends TestCase
         $this->assertStringContainsString($link->toString(), $graph->render());
     }
 
-    public function providesGraphDirections(): array
+    public static function providesGraphDirections(): array
     {
         return collect(GraphDirection::getValidDirections())
             ->map(fn ($direction) => [$direction])
