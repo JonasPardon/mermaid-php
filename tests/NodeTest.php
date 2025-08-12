@@ -6,13 +6,13 @@ namespace JonasPardon\Mermaid\Tests;
 
 use JonasPardon\Mermaid\Models\Node;
 use JonasPardon\Mermaid\VO\NodeShape;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 
 final class NodeTest extends TestCase
 {
-    /**
-     * @dataProvider providesNodes
-     * @test
-     */
+    #[Test]
+    #[DataProvider("providesNodes")]
     public function it_converts_to_string(
         string $name,
         string $shape,
@@ -27,7 +27,7 @@ final class NodeTest extends TestCase
         $this->assertEquals($expectedOutput, $node->toString());
     }
 
-    public function providesNodes(): array
+    public static function providesNodes(): array
     {
         return [
             ['A', NodeShape::BOX, 'A["A"];'],
